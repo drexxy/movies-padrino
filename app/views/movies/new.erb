@@ -1,0 +1,33 @@
+<h1>Create a new Movie</h1>
+
+<% form_for @movie, '/movies' do |f| %>
+
+	<fieldset>
+		<%= f.label :title %>
+		<%= f.text_field :title, class: 'form-control'
+		%>
+	</fieldset>
+	<fieldset>
+		<%= f.label :year %>
+		<%= f.text_field :year, class: 'form-control'
+		%>
+	</fieldset>
+	<fieldset>
+		<%= f.label :rating %>
+		<%= f.text_field :rating, class: 'form-control'
+		%>
+	</fieldset>
+	<fieldset>
+		<%= f.label :synopsis %>
+		<%= f.text_field :synopsis, class: 'form-control'
+		%>
+	</fieldset>
+	<fieldset>
+		<%= f.label :image_url %>
+		<%= f.text_field :image_url, class: 'form-control'
+		%>
+	</fieldset>
+
+	<%= f.submit "Add Movie" %>
+
+<% end %>
