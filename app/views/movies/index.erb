@@ -1,0 +1,6 @@
+<h1>Say hello to my movies section</h1>
+
+<% @movie.each do |movie| %>
+	<img src="<%= movie.image_url %>" >
+	<p><%= movie.title %></p>
+<% end %>

@@ -1,0 +1,28 @@
+<h1>EDIT THIS MOVIE!</h1>
+
+<% form_for @movie, '/movies/:id', method: :put do |f| %>
+
+	<fieldset>
+		<%= f.label :title %>
+		<%= f.text_field :title, class: 'edit-form' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :year %>
+		<%= f.text_field :year, class: 'edit-form' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :rating %>
+		<%= f.text_field :rating, class: 'edit-form' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :synopsis %>
+		<%= f.text_field :synopsis, class: 'edit-form' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :image_url %>
+		<%= f.text_field :image_url, class: 'edit-form' %>
+	</fieldset>
+
+	<%= f.submit "Edit Movie" %>
+
+	<% end %>
