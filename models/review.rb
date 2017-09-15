@@ -43,4 +43,9 @@ class Review
 								id,	movie_id)
 		Review.new(Hash[attributes.zip(results[0])])
 	end
+
+	def update
+		Review.db.execute("UPDATE reviews SET id = ?, movie_id = ?, name = ?, rating = ?, review = ? WHERE id = ?",
+						@id, @movie_id, @name, @rating, @review, @id)
+	end
 end

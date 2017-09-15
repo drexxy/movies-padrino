@@ -1,0 +1,26 @@
+<h1>Edit <%= @review.name %>'s Review of <%= @movie.title %></h1>
+
+<% form_for @review, url_for(:reviews, :edit, :id => params['id'], :movie_id => params['movie_id']), method: :put do |f| %>
+	<fieldset>
+		<%= f.label :id, class: 'hidden' %>
+		<%= f.text_field :id, class: 'hidden' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :movie_id, class: 'hidden' %>
+		<%= f.text_field :movie_id, class: 'hidden' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :name %>
+		<%= f.text_field :name, class: 'edit -review' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :rating %>
+		<%= f.text_field :rating, class: 'edit -review' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :review %>
+		<%= f.text_field :review, class: 'edit -review' %>
+	</fieldset>
+	
+		<%= f.submit "Edit this review" %>
+<% end %>

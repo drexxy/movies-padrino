@@ -37,6 +37,16 @@ class Movie
 	  results.map { |result| Movie.new(Hash[attributes.zip(result)])}
 	end
 
+	def self.find_with_reviews (id)
+		results = self.db.execute("SELECT * FROM movies JOIN reviews ON movies.id = reviews.movie_id WHERE movies.id = ?",
+										id)
+		reviews = results.map{ |result|  result.slice!(6,5) }
+			
+		review_result =	reviews.map { |review| Review.new(Hash[Review.attributes.zip(review)])}
+		movie =	Movie.new(Hash[attributes.zip(results[0])])
+		return movie, review_result
+	end
+
 	def self.find(id)
 		results = self.db.execute("SELECT * FROM movies WHERE id = ?",
 										id)

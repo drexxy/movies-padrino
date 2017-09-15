@@ -21,7 +21,9 @@ MovieGrabber::App.controllers :movies do
   
   # Show
   get :index, with: :id do
-    @movie = Movie.find(params['id'])
+    search_results = Movie.find_with_reviews(params['id'])
+    @movie = search_results[0]
+    @reviews = search_results[1]
     erb :'/movies/info', :layout => :'/movies'
   end
 

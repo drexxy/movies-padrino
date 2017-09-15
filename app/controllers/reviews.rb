@@ -25,11 +25,15 @@ MovieGrabber::App.controllers :reviews, :parent => :movies do
   end
 
   get :edit, with: :id do
-
+    @movie = Movie.find(params['movie_id'])
+    @review = Review.find(params['id'], params['movie_id'])
+    erb :'reviews/edit', :layout => :'/movies'
   end
 
-  put :id do
-
+  put :edit, with: :id do
+    @review = Review.new(params[:review])
+    @review.update
+    redirect :index
   end
 
   get :delete, with: :id do

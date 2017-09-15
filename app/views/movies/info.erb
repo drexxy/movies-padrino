@@ -2,9 +2,25 @@
 
 <img src="<%= @movie.image_url %>" >
 
-<p>Rating: <%= @movie.rating %>/10</p>
-<p>Released: <%= @movie.year %></p>
-<p><%= @movie.synopsis %></p>
+<dl>
+	<dt>Rating:</dt>
+	<dd><%= @movie.rating %>/10</dd>
+	<dt>Released:</dt>
+	<dd><%= @movie.year %></dd>
+	<dt>Synopsis:</dt>
+	<dd><%= @movie.synopsis %></dd>
+</dl>
+
+<dl>
+<% @reviews.each do |review| %>
+	<dt>Reviewer:</dt>
+	<dd><%= review.name %></dd>
+	<dt>Rating:</dt>
+	<dd><%= review.rating %></dd>
+	<dt>Review:</dt>
+	<dd><%= review.review %></dd>
+<% end %>
+</dl>
 
 <a href="/movies/edit/<%= @movie.id %>">Edit this movie</a>
 <a href="/movies/delete/<%= @movie.id %>">Delete this movie</a>
