@@ -1,0 +1,20 @@
+<h1>Add a Review for <%= @movie.title %></h1>
+
+<% form_for @review, url_for(:reviews, :create, :movie_id => params['movie_id'] )  do |f| %>
+
+	<fieldset>
+		<%= f.label :name %>
+		<%= f.text_field :name, class: 'form-review' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :rating %>
+		<%= f.text_field :rating, class: 'form-review' %>
+	</fieldset>
+	<fieldset>
+		<%= f.label :review %>
+		<%= f.text_field :review, class: 'form-review' %>
+	</fieldset>
+
+	<%= f.submit "Add Review" %>
+
+<% end %>

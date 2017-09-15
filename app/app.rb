@@ -4,9 +4,6 @@ module MovieGrabber
     register Padrino::Helpers
     enable :sessions
 
-    get '/' do
-      "Hello world!"
-    end
 
     ##
     # Caching support.

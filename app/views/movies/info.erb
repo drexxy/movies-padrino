@@ -5,3 +5,7 @@
 <p>Rating: <%= @movie.rating %>/10</p>
 <p>Released: <%= @movie.year %></p>
 <p><%= @movie.synopsis %></p>
+
+<a href="/movies/edit/<%= @movie.id %>">Edit this movie</a>
+<a href="/movies/delete/<%= @movie.id %>">Delete this movie</a>
+<a href="/movies">Back to movies</a>

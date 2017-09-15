@@ -1,0 +1,11 @@
+<h1><%= @movie.title %></h1>
+<p><%= @movie.year %></p>
+<p><%= @movie.rating %></p>
+<p><%= @movie.synopsis %></p>
+<img src="<%= @movie.image_url %>">
+
+<% form_for @movie, "/movies/#{@movie.id}", method: :delete do |f| %>
+
+<%= f.submit "Delete Movie" %>
+
+<% end %>

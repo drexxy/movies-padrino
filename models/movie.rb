@@ -43,20 +43,13 @@ class Movie
 		Movie.new(Hash[attributes.zip(results[0])])
 	end
 
-	def self.update(object)
-		self.db.execute("UPDATE movies SET title = ?,
-								 											 year = ?,
-																			 rating = ?,
-																			 synopsis = ?,
-																			 image_url = ?
-																			 WHERE id = ?", 
-																			 object.title,
-																			 object.year,
-																			 object.rating,
-																			 object.synopsis,
-																			 object.image_url,
-																			 object.id)
+	def self.update(id, object)
+		self.db.execute("UPDATE movies SET title = ?,	year = ?, rating = ?, synopsis = ?, image_url = ? WHERE id = ?",		 
+										object.title, object.year, object.rating, object.synopsis, object.image_url, id)
+	end
 
+	def self.delete(id)
+		self.db.execute("DELETE FROM movies WHERE id = ?", id)
 	end
 
 end

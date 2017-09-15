@@ -1,6 +1,6 @@
 <h1>EDIT THIS MOVIE!</h1>
 
-<% form_for @movie, '/movies/:id', method: :put do |f| %>
+<% form_for @movie, "/movies/#{@movie.id}", method: :put do |f| %>
 
 	<fieldset>
 		<%= f.label :title %>

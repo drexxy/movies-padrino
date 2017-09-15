@@ -1,6 +1,10 @@
-<h1>Say hello to my movies section</h1>
+<h1>Movies</h1>
 
+<ul class="movie-list">
 <% @movie.each do |movie| %>
-	<img src="<%= movie.image_url %>" >
-	<p><%= movie.title %></p>
+<li class="movie-links">
+	<img class="movie-poster" id="image-<%= movie.id %>" src="/images/<%= movie.image_url %>" ><!--
+	--><a href="/movies/<%= movie.id %>"><%= movie.title %></a>
+	</li>
 <% end %>
+</ul>

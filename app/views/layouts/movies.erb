@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>My Amazing Movie Database</title>
-	</head>
+		<title>My Amazing Movie Database</title>
+		<link href="/stylesheets/reset.css" rel="stylesheet">
+		<link href="/stylesheets/style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+ 	</head>
 	<body>
-		<%= yield %>
+		<header>
+			<nav>
+				<h1>Pudsey's Movies of Choice</h2>
+				<ul class= "nav-list">
+					<li class = "nav-items"><a href="/">Home</a></li><!--
+					--><li class = "nav-items"><a href="/movies">Movies</a></li><!--
+					--><li class = "nav-items"><a href="/movies/new">Add</a></li><!--
+					--><li class = "nav-items"><a href="/movies/edit">Edit</a></li><!--
+					--><li class = "nav-items"><a href="/movies/delete">Delete</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<%= yield %>
+		</main>
+		<footer>
+			<p>©Copyright Pudsey CO (A subsidary of Ben CO)</p>
+		</footer>
 	</body>
 </html>
