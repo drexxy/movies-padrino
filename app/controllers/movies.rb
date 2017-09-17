@@ -4,7 +4,7 @@ MovieGrabber::App.controllers :movies do
   post :create do
     @movie = Movie.new(params[:movie])
     @movie.save
-    redirect '/movies'
+    redirect url_for(:movies, :index)
   end
 
   # New
@@ -34,10 +34,10 @@ MovieGrabber::App.controllers :movies do
   end
 
   # Update
-  put :id do
+  put :edit, with: :id do
     @movie = Movie.new(params[:movie])
     Movie.update(params['id'], @movie)
-    redirect '/'
+    redirect url_for(:movies, :index, :id => params['id'])
   end
 
   # Confirm Delete
@@ -47,9 +47,9 @@ MovieGrabber::App.controllers :movies do
   end
 
   # Delete
-  delete :id do
+  delete :delete, with: :id do
     Movie.delete(params['id'])
-    redirect "movies/"
+    redirect url_for(:movies, :index)
   end
 
 end

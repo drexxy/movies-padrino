@@ -48,4 +48,8 @@ class Review
 		Review.db.execute("UPDATE reviews SET id = ?, movie_id = ?, name = ?, rating = ?, review = ? WHERE id = ?",
 						@id, @movie_id, @name, @rating, @review, @id)
 	end
+
+	def self.delete(id)
+		Review.db.execute("DELETE FROM reviews WHERE id = ?", id)
+	end
 end

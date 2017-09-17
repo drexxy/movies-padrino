@@ -40,11 +40,14 @@ class Movie
 	def self.find_with_reviews (id)
 		results = self.db.execute("SELECT * FROM movies JOIN reviews ON movies.id = reviews.movie_id WHERE movies.id = ?",
 										id)
-		reviews = results.map{ |result|  result.slice!(6,5) }
-			
-		review_result =	reviews.map { |review| Review.new(Hash[Review.attributes.zip(review)])}
-		movie =	Movie.new(Hash[attributes.zip(results[0])])
-		return movie, review_result
+		if results.empty? 
+			movie = Movie.find(id)
+		else
+			reviews = results.map{ |result|  result.slice!(6,5) }
+			review_result =	reviews.map { |review| Review.new(Hash[Review.attributes.zip(review)])}
+			movie =	Movie.new(Hash[attributes.zip(results[0])])
+		end
+			return movie, review_result
 	end
 
 	def self.find(id)
@@ -60,6 +63,7 @@ class Movie
 
 	def self.delete(id)
 		self.db.execute("DELETE FROM movies WHERE id = ?", id)
+		self.db.execute("DELETE FROM reviews WHERE movie_id = ?", id)
 	end
 
 end

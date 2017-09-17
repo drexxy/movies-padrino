@@ -2,4 +2,6 @@
 
 <p><%= @review.review %>
 
-<%= link_to "Edit this review", url_for(:reviews, :edit, :id => @review.id, :movie_id => params['movie_id']) %>
+<%= link_to "Edit this review", url_for(:reviews, :edit, :id => params['id'], :movie_id => params['movie_id']) %>
+
+<%= link_to "Delete this review", url_for(:reviews, :delete, :id => params['id'], :movie_id => params['movie_id']) %>

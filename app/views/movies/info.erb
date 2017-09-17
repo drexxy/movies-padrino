@@ -1,27 +1,36 @@
 <h1><%= @movie.title %></h1>
 
-<img src="<%= @movie.image_url %>" >
+<section class="movie-info">
+	<dl class="movie-info-list">
+		<dt>Released:</dt><!--
+		--><dd><%= @movie.year %></dd>
+		<dt>Rating:</dt><!--
+		--><dd><%= @movie.rating %>/10</dd>
+		<dt>Synopsis:</dt><!--
+		--><dd><%= @movie.synopsis %></dd>
+	</dl>
+</section>
 
-<dl>
-	<dt>Rating:</dt>
-	<dd><%= @movie.rating %>/10</dd>
-	<dt>Released:</dt>
-	<dd><%= @movie.year %></dd>
-	<dt>Synopsis:</dt>
-	<dd><%= @movie.synopsis %></dd>
-</dl>
+<section class="movie-reviews" >
+	<h2>User Reviews</h2>
+	<% unless @reviews.nil? %> 
+		<ul class="movie-reviews-list">
+			<% @reviews.each do |review| %>
+			<li><%= review.name %> - <%= review.rating %>/10</li>
+			<% end %>
+		</ul>
+		<%= link_to "Read the full reviews", url_for(:reviews, :index, :movie_id => params['id']) %>
+		<%= link_to "Add a review", url_for(:reviews, :new, :movie_id => params['id']) %>
+	<% else %>
+		<p>There are currently no reviews for this film.</p>
+		<%= link_to "Would you like to add one?", url_for(:reviews, :new, :movie_id => params['id']) %>
+	<% end %>
+</section>
 
-<dl>
-<% @reviews.each do |review| %>
-	<dt>Reviewer:</dt>
-	<dd><%= review.name %></dd>
-	<dt>Rating:</dt>
-	<dd><%= review.rating %></dd>
-	<dt>Review:</dt>
-	<dd><%= review.review %></dd>
-<% end %>
-</dl>
+<img class="movie-img" src="/images/<%= @movie.image_url %>" >
 
-<a href="/movies/edit/<%= @movie.id %>">Edit this movie</a>
-<a href="/movies/delete/<%= @movie.id %>">Delete this movie</a>
-<a href="/movies">Back to movies</a>
+<section class="movie-info-links">
+	<%= link_to "Edit this movie", url_for(:movies, :edit,:id => params['id']) %>
+	<%= link_to "Delete this movie", url_for(:movies, :delete, :id => params['id']) %>
+	<%= link_to "Return to movies", url_for(:movies, :index) %>
+</section>

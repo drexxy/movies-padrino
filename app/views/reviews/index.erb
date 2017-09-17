@@ -4,3 +4,5 @@
 <p><%= review.name %> - <%= review.rating %>/10</p>
 <%= link_to "Read the full review!", url_for(:reviews, :index, :id => review.id, :movie_id => params['movie_id']) %>
 <% end %>
+
+<%= link_to "Return to the movie page", url_for(:movies, :index, :id => params['movie_id']) %>

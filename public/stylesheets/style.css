@@ -124,3 +124,68 @@ footer p {
 .hidden {
 	display: none;
 }
+
+/* Individual Movie Page */
+
+.movie-info {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+	margin-top: 20px;
+	font-size: 2rem;
+	width: 50%;
+}
+
+.movie-info-list>dt, .movie-info-list>dd {
+display: inline-block;
+width: 50%;
+margin-top: 20px;
+vertical-align: top;
+}
+
+.movie-reviews {
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	margin-left: 20px;
+	margin-top: 50px;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.movie-reviews h2{
+	font-size: 2.2rem;
+	margin-bottom: 20px;
+}
+
+.movie-reviews>a{
+	font-size: 2.2rem;
+	margin-left: 40px;
+	margin-top: 40px;
+}
+
+.movie-reviews-list>li{
+display: inline-block;
+width: 100%;
+text-align: center;
+margin-bottom: 20px;
+}
+
+.movie-img {
+	width: 25%;	
+	margin-top: -150px;
+	margin-left: 100px;
+}
+
+.movie-info-links {
+	display: block;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 1.5rem;
+}
+
+.movie-info-links>a {
+	margin-left: 50px;
+}
+
+
